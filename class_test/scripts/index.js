@@ -1,20 +1,54 @@
-var FroutModel = (function(){
-  var name = "none";
+// var FroutModel = (function(){
+
+//   // private
+//   var name = "none";
   
-  var cls = function(pname){
-    name = pname;
+//   var cls = function(pname){
+//     name = pname;
+//   };
+  
+//   cls.prototype.callMe = function(){
+//     alert("this is " + name);
+//   };
+  
+//   return cls;
+// })();
+
+// var obj = new FroutModel("Apple");
+
+// // "undefined"
+// console.log(obj.name);
+
+// // "this is Apple"
+// obj.callMe();
+
+
+// リビングモジュールパターン
+module = function(){
+  var current = null;
+  var labels = {
+    'home' : 'home',
+    'art' : 'art',
+    'contact' : 'contact'
   };
-  
-  cls.prototype.callMe = function(){
-    alert("this is " + name);
+
+  var init = function(){
+   
   };
-  
-  return cls;
-})();
 
-var obj = new FroutModel("Apple");
+  var show = function(){
+    current = 1;
+  };
 
-// "undefined"
-console.log(obj.name);
+  var hide = function(){
+    show();
+  }
 
-obj.callMe();
+  return {
+    init : init,
+    show : show,
+    current : current
+  }
+}();
+
+module.init();
